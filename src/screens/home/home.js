@@ -2,7 +2,7 @@ import {View, Text, StatusBar, ScrollView} from 'react-native';
 import React from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-import {Stories} from '../../components';
+import {Post, Stories} from '../../components';
 
 const Home = () => {
   return (
@@ -17,6 +17,7 @@ const Home = () => {
           justifyContent: 'space-between',
           flexDirection: 'row',
           paddingHorizontal: 15,
+          height: 100,
           paddingTop: 55,
           alignItems: 'center',
         }}>
@@ -26,6 +27,7 @@ const Home = () => {
       </View>
       <ScrollView>
         <Stories />
+        <Post />
       </ScrollView>
     </View>
   );

@@ -6,13 +6,36 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  Animated,
 } from 'react-native';
 import IonicIcons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
+import {useState} from 'react';
+import {useEffect} from 'react';
 
 const Status = ({route, navigation}) => {
   const {name} = route.params;
   const {image} = route.params;
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      navigation.goBack();
+    }, 5000);
+    Animated.timing(progress, {
+      toValue: 5,
+      duration: 5000,
+      useNativeDriver: false,
+    }).start();
+    return () => clearTimeout(timer);
+  }, []);
+
+  const [progress, setProgress] = useState(new Animated.Value(0));
+
+  const progressAnimation = progress.interpolate({
+    inputRange: [0, 5],
+    outputRange: ['0%', '100%'],
+  });
+
   return (
     <View
       style={{
@@ -32,12 +55,12 @@ const Status = ({route, navigation}) => {
           position: 'absolute',
           top: 55,
         }}>
-        <View
+        <Animated.View
           style={{
             height: '100%',
             backgroundColor: '#fff',
-            width: '50%',
-          }}></View>
+            width: progressAnimation,
+          }}></Animated.View>
       </View>
       <View
         style={{
@@ -75,7 +98,7 @@ const Status = ({route, navigation}) => {
             width: '100%',
           }}>
           <Text style={{color: '#fff', fontSize: 14, padding: 10}}>{name}</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <IonicIcons
               name="close"
               style={{fontSize: 20, color: '#fff', opacity: 0.6, marginTop: 10}}
@@ -96,6 +119,7 @@ const Status = ({route, navigation}) => {
           alignItems: 'center',
           justifyContent: 'space-between',
           marginVertical: 10,
+          width: '95%',
         }}>
         <TextInput
           placeholder="send message..."
