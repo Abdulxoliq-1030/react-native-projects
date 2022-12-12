@@ -3,26 +3,19 @@ import React from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import {Post, Stories} from '../../components';
+import styles from './styles';
 
 const Home = () => {
   return (
-    <View style={{backgroundColor: '#fff', height: '100%'}}>
+    <View style={styles.container}>
       <StatusBar
         backgroundColor="#fff"
         barStyle="dark-content"
         animated={true}
       />
-      <View
-        style={{
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          paddingHorizontal: 15,
-          height: 100,
-          paddingTop: 55,
-          alignItems: 'center',
-        }}>
+      <View style={styles.wrapper}>
         <FontAwesome name="plus-square-o" style={{fontSize: 24}} />
-        <Text style={{fontSize: 24, fontWeight: 'bold'}}>Instagram</Text>
+        <Text style={styles.text}>Instagram</Text>
         <Feather name="navigation" style={{fontSize: 24}} />
       </View>
       <ScrollView>
