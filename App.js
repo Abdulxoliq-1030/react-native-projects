@@ -18,7 +18,9 @@ const App = () => {
           tabBarHideOnKeyboard: true,
           tabBarShowLabel: false,
           headerShown: false,
-
+          tabBarStyle: {
+            height: 80,
+          },
           tabBarIcon: ({focused, size, colour}) => {
             let iconName;
             if (route.name === 'Home') {
