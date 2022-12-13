@@ -3,7 +3,6 @@ import {
   ScrollView,
   TouchableOpacity,
   StatusBar,
-  Dimensions,
   Image,
   Text,
 } from 'react-native';
@@ -21,52 +20,20 @@ const Search = () => {
     setImage(data);
   };
 
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
-
   return (
     <View style={styles.container}>
       <ScrollView showsHorizontalScrollIndicator={false}>
         <SearchBox />
         <SearchContent data={getData} />
-        <TouchableOpacity
-          style={{
-            margin: 25,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+        <TouchableOpacity style={styles.plus}>
           <AntDesign name="pluscircleo" style={{fontSize: 40, opacity: 0.5}} />
         </TouchableOpacity>
       </ScrollView>
       {image ? (
-        <View
-          style={{
-            position: 'absolute',
-            zIndex: 1,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(52,52,52,0.8)',
-          }}>
+        <View style={styles.zImage}>
           <StatusBar backgroundColor="#525252" barStyle="dark-content" />
-          <View
-            style={{
-              position: 'absolute',
-              top: windowHeight / 6,
-              left: windowWidth / 18,
-              backgroundColor: '#fff',
-              width: 350,
-              height: 465,
-              borderRadius: 15,
-              zIndex: 1,
-              elevation: 50,
-            }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                paddingVertical: 10,
-                paddingHorizontal: 10,
-              }}>
+          <View style={styles.viewStory}>
+            <View style={styles.storyStyles}>
               <Image
                 source={image}
                 style={{
@@ -82,14 +49,7 @@ const Search = () => {
               </View>
             </View>
             <Image source={image} style={{width: '100%', height: '80%'}} />
-            <View
-              style={{
-                justifyContent: 'space-around',
-                width: '100%',
-                flexDirection: 'row',
-                alignItems: 'center',
-                padding: 8,
-              }}>
+            <View style={styles.storyFooter}>
               <IonicIcons name="ios-heart-outline" style={{fontSize: 26}} />
               <IonicIcons
                 name="ios-person-circle-outline"

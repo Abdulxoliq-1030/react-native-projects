@@ -4,7 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import {Activity, Home, Profile, Reels, Search} from './src/screens';
-import {Status} from './src/components';
+import {FriendProfile, Status} from './src/components';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -58,6 +58,7 @@ const App = () => {
         }}>
         <Stack.Screen name="BottomTabScreen" component={BottomTabScreen} />
         <Stack.Screen name="Status" component={Status} />
+        <Stack.Screen name="FriendProfile" component={FriendProfile} />
       </Stack.Navigator>
     </NavigationContainer>
   );

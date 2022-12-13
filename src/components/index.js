@@ -5,6 +5,8 @@ import {default as SearchBox} from './screen-components/search-box';
 import {default as SearchContent} from './screen-components/search-content';
 import {default as ReelsComponent} from './screen-components/reels-component';
 import {default as SingleReel} from './screen-components/single-reel';
+import {default as FriendProfile} from './screen-components/friend-profile';
+import {default as ProfileBody} from './screen-components/profile-body';
 
 export {
   Stories,
@@ -14,4 +16,6 @@ export {
   SearchContent,
   ReelsComponent,
   SingleReel,
+  FriendProfile,
+  ProfileBody,
 };
