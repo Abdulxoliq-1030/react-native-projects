@@ -40,7 +40,18 @@ const Activity = () => {
           return (
             <View key={data.name} style={{width: '100%'}}>
               <View style={styles.touchableImageWrapper}>
-                <TouchableOpacity style={styles.touchableImage}>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.push('FriendProfile', {
+                      name: data.name,
+                      profileImage: data.profileImage,
+                      follow: follow,
+                      post: data.posts,
+                      followers: data.followers,
+                      following: data.following,
+                    })
+                  }
+                  style={styles.touchableImage}>
                   <Image
                     source={data.profileImage}
                     style={styles.profileImage}
@@ -80,7 +91,18 @@ const Activity = () => {
               {close ? null : (
                 <View style={styles.profileImageWrap}>
                   <View>
-                    <TouchableOpacity style={styles.suggestionWrap}>
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.push('FriendProfile', {
+                          name: data.name,
+                          profileImage: data.profileImage,
+                          follow: follow,
+                          post: data.posts,
+                          followers: data.followers,
+                          following: data.following,
+                        })
+                      }
+                      style={styles.suggestionWrap}>
                       <Image
                         style={styles.suggestionImage}
                         source={data.profileImage}

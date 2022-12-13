@@ -1,9 +1,10 @@
 //import liraries
-import React from 'react';
-import {View, StyleSheet, Image, Text} from 'react-native';
+import React, {useState} from 'react';
+import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 
 // create a component
-const ProfileBody = ({
+export const ProfileBody = ({
   name,
   profileImage,
   accountName,
@@ -38,6 +39,55 @@ const ProfileBody = ({
   );
 };
 
+export const ProfileButtons = ({id}) => {
+  const [follow, setFollow] = useState(follow);
+  return (
+    <>
+      {id === 0 ? null : (
+        <View style={styles.btnWrapper}>
+          <TouchableOpacity
+            onPress={() => setFollow(!follow)}
+            style={{width: '42%'}}>
+            <View
+              style={{
+                width: '100%',
+                height: 35,
+                borderRadius: 5,
+                backgroundColor: follow ? null : '#3493d9',
+                borderWidth: follow ? 1 : 0,
+                borderColor: '#dedede',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{color: follow ? '#000' : '#fff'}}>
+                {follow ? 'Following' : 'Follow'}
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <View style={styles.messageWrap}>
+            <Text>Message</Text>
+          </View>
+          <View
+            style={{
+              width: '10%',
+              height: 35,
+              borderRadius: 5,
+              borderWidth: 1,
+              borderColor: '#dedede',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Feather
+              name="chevron-down"
+              style={{fontSize: 20, color: '#000'}}
+            />
+          </View>
+        </View>
+      )}
+    </>
+  );
+};
+
 // define your styles
 const styles = StyleSheet.create({
   wrapper: {
@@ -66,6 +116,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
   },
-});
 
-export default ProfileBody;
+  btnWrapper: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+
+  messageWrap: {
+    width: '42%',
+    height: 35,
+    borderWidth: 1,
+    borderColor: '#dedede',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+  },
+});
