@@ -1,6 +1,7 @@
 //import liraries
 import React, {useState} from 'react';
 import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Feather from 'react-native-vector-icons/Feather';
 
 // create a component
@@ -15,35 +16,119 @@ export const ProfileBody = ({
 }) => {
   return (
     <View style={styles.container}>
-      {accountName ? null : (
-        <View style={styles.wrapper}>
-          <View style={styles.profileWrapper}>
-            <Image source={profileImage} style={styles.profileImage} />
-            <Text style={styles.userName}>{name}</Text>
+      {accountName ? (
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: 'bold',
+              }}>
+              {accountName}
+            </Text>
+            <Feather
+              name="chevron-down"
+              style={{
+                fontSize: 20,
+                color: '#000',
+                paddingHorizontal: 5,
+                opacity: 0.5,
+              }}
+            />
           </View>
-          <View style={styles.postsCount}>
-            <Text style={styles.postText}>{post}</Text>
-            <Text>Posts</Text>
-          </View>
-          <View style={styles.postsCount}>
-            <Text style={styles.postText}>{followers}</Text>
-            <Text>Followers</Text>
-          </View>
-          <View style={styles.postsCount}>
-            <Text style={styles.postText}>{following}</Text>
-            <Text>Following</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Feather
+              name="plus-square"
+              style={{fontSize: 25, color: '#000', paddingHorizontal: 15}}
+            />
+            <Feather
+              name="menu"
+              style={{
+                fontSize: 25,
+              }}
+            />
           </View>
         </View>
-      )}
+      ) : null}
+      <View style={styles.wrapper}>
+        <View style={styles.profileWrapper}>
+          <Image source={profileImage} style={styles.profileImage} />
+          <Text style={styles.userName}>{name}</Text>
+        </View>
+        <View style={styles.postsCount}>
+          <Text style={styles.postText}>{post}</Text>
+          <Text>Posts</Text>
+        </View>
+        <View style={styles.postsCount}>
+          <Text style={styles.postText}>{followers}</Text>
+          <Text>Followers</Text>
+        </View>
+        <View style={styles.postsCount}>
+          <Text style={styles.postText}>{following}</Text>
+          <Text>Following</Text>
+        </View>
+      </View>
     </View>
   );
 };
 
-export const ProfileButtons = ({id}) => {
+export const ProfileButtons = ({id, name, accountName, profileImage}) => {
+  const navigation = useNavigation();
   const [follow, setFollow] = useState(follow);
   return (
     <>
-      {id === 0 ? null : (
+      {id === 0 ? (
+        <View
+          style={{
+            flexDirection: 'row',
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'space-evenly',
+            paddingVertical: 5,
+          }}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.push('EditProfile', {
+                name,
+                accountName,
+                profileImage,
+              })
+            }
+            style={{
+              width: '100%',
+            }}>
+            <View
+              style={{
+                width: '100%',
+                height: 35,
+                borderRadius: 5,
+                boderColor: '#dedede',
+                borderWidth: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 14,
+                  letterSpacing: 1,
+                  opacity: 0.8,
+                }}>
+                Edit Profile
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      ) : (
         <View style={styles.btnWrapper}>
           <TouchableOpacity
             onPress={() => setFollow(!follow)}

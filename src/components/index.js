@@ -7,6 +7,8 @@ import {default as ReelsComponent} from './screen-components/reels-component';
 import {default as SingleReel} from './screen-components/single-reel';
 import {default as FriendProfile} from './screen-components/friend-profile';
 import {default as ProfileBody} from './screen-components/profile-body';
+import {default as EditProfile} from './screen-components/edit-profile';
+import {default as BottomTabView} from './screen-components/bottom-tab-view';
 
 export {
   Stories,
@@ -18,4 +20,6 @@ export {
   SingleReel,
   FriendProfile,
   ProfileBody,
+  EditProfile,
+  BottomTabView,
 };
