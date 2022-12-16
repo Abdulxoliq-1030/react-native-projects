@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Image, StyleSheet} from 'react-native';
-import {Onboarding} from './src/screens';
+import {Onboarding} from './src/screens/create-account';
 
 const App = () => {
   const [splash, setSplash] = useState(true);
