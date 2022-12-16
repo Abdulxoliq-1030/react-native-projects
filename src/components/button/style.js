@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     height: 50,
-    width: '80%',
+    width: '100%',
     backgroundColor: '#E57814',
     justifyContent: 'center',
     alignItems: 'center',

@@ -1,5 +1,6 @@
 //import liraries
 import React from 'react';
+
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import {View, StyleSheet, Dimensions, Image} from 'react-native';
 import styles from './style';
@@ -50,7 +51,9 @@ const Onboarding = () => {
           )}
         />
       </View>
-      <Button text="Get Started" />
+      <View style={{padding: 20}}>
+        <Button routeName="Login" text="Get Started" />
+      </View>
     </View>
   );
 };
