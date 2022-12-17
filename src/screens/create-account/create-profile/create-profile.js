@@ -106,7 +106,7 @@ const CreateProfile = () => {
             />
           </View>
           <View style={{marginTop: 20, width: '100%'}}>
-            <Button text="Continue" />
+            <Button text="Continue" routeName="AddFriends" />
           </View>
           <Text style={{textAlign: 'center', marginTop: 10}}>
             By creating account you confirm you have read and agree with{' '}
