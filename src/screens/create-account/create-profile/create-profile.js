@@ -1,6 +1,6 @@
 //import liraries
 import React, {useState} from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View, ScrollView} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SelectDropdown from 'react-native-select-dropdown';
@@ -14,9 +14,8 @@ const inputLabel = ['Your name', 'Create a username', 'Email'];
 const CreateProfile = () => {
   const gender = ['Male', 'Female'];
   const [date, setDate] = useState(new Date());
-  const [open, setOpen] = useState(false);
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.top}>
         <Text style={styles.headText}>Create profile</Text>
         <Text style={styles.descriptText}>Upload profile picture</Text>
@@ -115,7 +114,7 @@ const CreateProfile = () => {
           </Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
