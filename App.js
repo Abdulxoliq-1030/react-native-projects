@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Login, Onboarding} from './src/screens/create-account';
+import {CreateProfile, Login, Onboarding} from './src/screens/create-account';
 import VerifyPhone from './src/screens/create-account/login/verify-phone';
 
 const App = () => {
@@ -31,6 +31,7 @@ const App = () => {
             <Stack.Screen name="Onboarding" component={Onboarding} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="VerifyPhone" component={VerifyPhone} />
+            <Stack.Screen name="CreateProfile" component={CreateProfile} />
           </Stack.Navigator>
         </NavigationContainer>
       )}

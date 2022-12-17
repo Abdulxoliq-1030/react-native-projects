@@ -7,7 +7,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
-  Pressable,
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -32,7 +31,7 @@ const VerifyPhone = () => {
         <Text>
           Didn’t get the code?{' '}
           <Text
-            onPress={() => console.log('Clickde')}
+            onPress={() => navigation.navigate('CreateProfile')}
             style={styles.resendText}>
             Resend
           </Text>
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
   top: {
     flexDirection: 'row',
     padding: 20,
-    marginTop: 80,
+    marginTop: 35,
     borderBottomColor: '#ddd',
     borderBottomWidth: 1,
     justifyContent: 'space-between',

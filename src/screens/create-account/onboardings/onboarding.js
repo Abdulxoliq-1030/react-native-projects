@@ -32,7 +32,7 @@ const Onboarding = () => {
     <View style={styles.container}>
       <View style={styles.flatList}>
         <SwiperFlatList
-          index={2}
+          index={0}
           showPagination
           paginationDefaultColor="#DDDDE3"
           paginationStyleItem={styles.dot}

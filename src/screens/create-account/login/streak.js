@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   textWrap: {
-    marginTop: 50,
+    marginTop: 30,
   },
 
   input: {
