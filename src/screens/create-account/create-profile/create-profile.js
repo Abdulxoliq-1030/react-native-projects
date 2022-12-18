@@ -15,7 +15,7 @@ const CreateProfile = () => {
   const gender = ['Male', 'Female'];
   const [date, setDate] = useState(new Date());
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={[styles.container]}>
       <View style={styles.top}>
         <Text style={styles.headText}>Create profile</Text>
         <Text style={styles.descriptText}>Upload profile picture</Text>
